@@ -9,18 +9,16 @@ export default function ToDo() {
     const salvar = (e) => {
         e.preventDefault();
         setLista([...lista,{
-            atividade:atividade,
+            atividade: atividade,
             id: id
         }]);
-        setId(id +1);
-        setAtividade("");
+        setId(id+1);
     };
 
-    return (
+    return(
         <div>
             <h1>Lista de Atividades</h1>
             <Link to="/">home</Link>
-            <h1>Lista de Atividades</h1>
             <p>{atividade}</p>
             <form onSubmit={salvar}>
                 <input type="text" onChange={(e)=>{setAtividade(e.target.value)}}></input>
@@ -32,3 +30,6 @@ export default function ToDo() {
             </div>
             )}     
         </div>
+
+    );
+}
