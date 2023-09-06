@@ -15,14 +15,27 @@ export default function ToDo() {
         setId(id+1);
     };
 
+    const remover = (id) => {
+        const auxLista  = [];
+        lista.map ((lista) => {
+            if (lista.id !== id) {
+                auxLista.push(lista);
+            }
+        });
+
+        setLista(auxLista);
+        
+    }
+
     return(
-        <div>
+        <div class = "container">
             <h1>Lista de Atividades</h1>
             <Link to="/">home</Link>
             <p>{atividade}</p>
             <form onSubmit={salvar}>
                 <input type="text" onChange={(e)=>{setAtividade(e.target.value)}}></input>
                 <button>ADD</button>
+                <button>Remover</button>
             </form> 
             {lista.map((ativ)=>
             <div key={ativ.id}>
