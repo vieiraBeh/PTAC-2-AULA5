@@ -1,0 +1,39 @@
+body {
+background-image: url(https://i.pinimg.com/564x/08/88/93/0888931d0e70357c66529fc259e7345a.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: 115%;
+position: fixed;
+}
+
+h1{
+    font-size: 50px;
+    color: whitesmoke;
+}
+
+input{
+    font-size: 15px;
+    background-color: whitesmoke;
+}
+
+button{
+    background-color: rgb(162, 139, 184);
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+ul, li{
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+div{
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+
+
+
+
+

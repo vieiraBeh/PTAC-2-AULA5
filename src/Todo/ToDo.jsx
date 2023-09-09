@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./ToDo.css"
 
 export default function ToDo() {
 
     const[atividade, setAtividade] = useState("");
     const[lista, setLista] = useState([]);
     const[id,setId] = useState(1);
+
     const salvar = (e) => {
         e.preventDefault();
         setLista([...lista,{
@@ -13,6 +15,7 @@ export default function ToDo() {
             id: id
         }]);
         setId(id+1);
+        setAtividade("");
     };
 
     const remover = (id) => {
@@ -22,27 +25,27 @@ export default function ToDo() {
                 auxLista.push(lista);
             }
         });
-
-        setLista(auxLista);
-        
+        setLista(auxLista); 
     }
 
     return(
         <div class = "container">
             <h1>Lista de Atividades</h1>
             <Link to="/">home</Link>
-            <p>{atividade}</p>
             <form onSubmit={salvar}>
-                <input type="text" onChange={(e)=>{setAtividade(e.target.value)}}></input>
+                <input type="text" 
+                value={atividade}
+                onChange={(e)=>{setAtividade(e.target.value)}} />
                 <button>ADD</button>
-                <button>Remover</button>
             </form> 
             {lista.map((ativ)=>
-            <div key={ativ.id}>
-                <p>{ativ.atividade}</p>
-            </div>
+            <ul key={ativ.id}>
+                <li>
+                 <p>{ativ.atividade}</p>    
+                 <button onClick={() => remover(ativ.id)}>REMOVE</button> 
+                </li>
+            </ul>
             )}     
         </div>
-
     );
 }
